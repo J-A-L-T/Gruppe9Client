@@ -1,5 +1,5 @@
-<%= form_for(@message) do |f| %>
-  <% if @message.errors.any? %>
+<%= form_for([:user, @message]) do |f| %>
+  <!--<% if @message.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
 
@@ -9,18 +9,41 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
-<div class="form-group">
+  <% end %>-->
+
   <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username, :class => "form-control" %>
+    <%= f.label :sender %><br>
+    <%= f.text_field :sender %>
   </div>
   <div class="field">
-    <%= f.label :message %><br>
-    <%= f.text_area :message, :class => "form-control" %>
+    <%= f.label :cipher %><br>
+    <%= f.text_area :cipher %>
+  </div>
+  <div class="field">
+    <%= f.label :iv %><br>
+    <%= f.text_field :iv %>
+  </div>
+  <div class="field">
+    <%= f.label :key_recipient_enc %><br>
+    <%= f.text_field :key_recipient_enc %>
+  </div>
+  <div class="field">
+    <%= f.label :sig_recipient %><br>
+    <%= f.text_field :sig_recipient %>
+  </div>
+  <div class="field">
+    <%= f.label :timestamp %><br>
+    <%= f.datetime_select :timestamp %>
+  </div>
+  <div class="field">
+    <%= f.label :recipient %><br>
+    <%= f.text_field :recipient %>
+  </div>
+  <div class="field">
+    <%= f.label :sig_service %><br>
+    <%= f.text_field :sig_service %>
   </div>
   <div class="actions">
-    <%= f.submit :class =>  "form-control btn btn-md btn-success" %>
-  </div>
+    <%= f.submit %>
   </div>
 <% end %>

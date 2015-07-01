@@ -1,17 +1,30 @@
-Rails.application.routes.draw do
-  get     "/users/logout",  to: "users#logout"
-  get    "/messages",       to: "messages#index"
-  post   "/messages",       to: "messages#create"
-  get    "/messages/new",   to: "messages#new"
-  get    "/users",          to: "users#index"
-  post   "/users",          to: "users#create"
-  get    "/users/new",      to: "users#new"
-  root   "users#new"
+Rails.application.routes.draw do  
+  resources :users, defaults: {format: :json} do
+    resources :messages, defaults: {format: :json}
+  end
 
+  match '', to: 'users#create', via: [:post], defaults: {format: :json}
+  match '', to: 'users#index', via: [:get], defaults: {format: :json}
+
+  match ':id', to: 'users#show', via: [:get], defaults: {format: :json}
+  match ':id', to: 'user#destroy', via: [:destroy], defaults: {format: :json}
+
+  match ':id/pubkey', to: 'users#pubkey', via: [:get], defaults: {format: :json}
+
+  match 'message', to: 'messages#create', via: [:post], defaults: {format: :json}
+  match ':user_id/message', to: 'messages#index', via: [:get], defaults: {format: :json}
+
+  #match 'delete_message/:id', to: 'messages#destroy', via: [:get], defaults: {format: :json}
+
+  # get 'user/send' => 'messages#new', as: 'send_message', defaults: {format: :json}
+      
+  # get ':id/pubkey' => 'users#pubkey', as: 'pubkey'#, defaults: {format: :json}
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

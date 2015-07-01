@@ -1,125 +1,67 @@
-require 'openssl' # Dokumentation dazu: http://ruby-doc.org/stdlib-2.0/libdoc/openssl/rdoc/OpenSSL.html
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :pubkey]
 
   def index
-    if $gUsername != ""
-    @users=[]
-    response = HTTParty.get($URL,
-    :body => {},
-    :headers => { 'Content-Type' => 'application/json' })
-    response.each do |r|
-    username = r["username"]
-    user = User.new(:name => username)
-      @users<<user
-    end
-        else
-        respond_to do |format|
-            format.html { redirect_to '/', alert: "Sie sind nicht eingeloggt." }
-          end
-        end
+    @users = User.all
   end
 
-  def logout
-    $gUsername = ""
-    $gPrivkey_user = ""
-    $gPubkey_user = ""
-    redirect_to '/'
+  def show
+  end
+
+  def pubkey
   end
 
   def new
-    if $gUsername != ""      
-      redirect_to '/messages'
-    else
-      @user = User.new
-    end
+    @user = User.new
+  end
+
+  def edit
   end
 
   def create
     @user = User.new(user_params)
-    success = true
-    if params[:commit] == 'Registrieren'
-      salt_masterkey = OpenSSL::Random.random_bytes 64
-      i = 10000
-      digest = OpenSSL::Digest::SHA256.new
-      masterkey = OpenSSL::PKCS5.pbkdf2_hmac(@user.password, salt_masterkey, i, 256, digest)
-      key = OpenSSL::PKey::RSA.new(2048)
-      private_key = key.to_pem
-      puts private_key
-      public_key = key.public_key.to_pem
-      cipher = OpenSSL::Cipher.new('AES-128-ECB')
-      cipher.encrypt
-      cipher.key = masterkey
-      privkey_user_enc = cipher.update(private_key) + cipher.final
+    respond_to do |format|
+      if User.exists?(:name => @user.name)
+        format.json { render json: '{ "status":"501" }', status: 501 }
+      elsif @user.save
+        format.json { render json: '{ "status":"200" }', status: 200 }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: 500 }
+      end
+    end
+  end
 
-      response = HTTParty.post($URL+'user', 
-      :body => { :user => { :username => @user.name, 
-                            :salt_masterkey => Base64.strict_encode64(salt_masterkey),
-                            :pubkey_user => Base64.strict_encode64(public_key), 
-                            :privkey_user_enc => Base64.strict_encode64(privkey_user_enc)
-                          }
-               }.to_json,
-      :headers => { 'Content-Type' => 'application/json' })
-      case response.code
-        when 409
-          @success = false
-          respond_to do |format|
-          format.html { redirect_to '/users/new', alert: "Benutzername bereits vergeben." }
-          end
-        end
+  def update
+    respond_to do |format|
+      if @user.update(user_params)
+        #format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        #format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-        if (params[:commit] == 'Einloggen' || 'Registrieren') && success == true
-          response = HTTParty.get($URL+@user.name, 
-          :headers => { 'Content-Type' => 'application/json' })
-          case response.code
-          when 404
-            respond_to do |format|
-            format.html { redirect_to '/users/new', alert: "Anmeldung fehlgeschlagen" }
-          end
-          else
-          # Masterkey bilden mit passwort und saltmasterkey
-          # Sachen lokal 
-          $gUsername = @user.name
-          password = @user.password
-          jsonResponse = JSON.parse(response.body)
-          salt_masterkey = Base64.strict_decode64(jsonResponse["salt_masterkey"])
-          $gPubkey_user = Base64.strict_decode64(jsonResponse["pubkey_user"])
-          privkey_user_enc = Base64.strict_decode64(jsonResponse["privkey_user_enc"])
-          i = 10000
-          digest = OpenSSL::Digest::SHA256.new
-          masterkey = OpenSSL::PKCS5.pbkdf2_hmac(password, salt_masterkey, i, 256, digest)
-          cipher = OpenSSL::Cipher.new('AES-128-ECB')
-          cipher.decrypt
-          cipher.key = masterkey
-          begin
-          $gPrivkey_user = OpenSSL::PKey::RSA.new(cipher.update(privkey_user_enc) + cipher.final)
-          rescue OpenSSL::Cipher::CipherError
-            $gUsername = ""
-            $gPubkey_user = ""
-            $gPrivkey_user = ""
-            respond_to do |format|
-            format.html { redirect_to '/users/new', alert: "Anmeldung fehlgeschlagen." }
-            end
-          end
-          if (params[:commit] == 'Registrieren') && $gUsername != ""
-            respond_to do |format|
-            format.html { redirect_to '/messages', notice: "Registrierung erfolgreich." }
-          end
-          elsif (params[:commit] == 'Einloggen') && $gUsername != ""
-              redirect_to '/messages'
-          end
-        end
-      end
+    end
+  end
+
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      #add statuscodes falls wir die funktion mit einbauen
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      render status: 200
+      #format.json { render json: status = '{ "status":"200" }' }
+    end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password)
+      params.require(:user).permit(:name, :slug, :salt_masterkey, :pubkey_user, :privkey_user_enc)
     end
 end

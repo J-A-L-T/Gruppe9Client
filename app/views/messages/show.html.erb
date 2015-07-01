@@ -6,8 +6,38 @@
 </p>
 
 <p>
-  <strong>Message:</strong>
-  <%= @message.message %>
+  <strong>Cipher:</strong>
+  <%= @message.cipher %>
+</p>
+
+<p>
+  <strong>Iv:</strong>
+  <%= @message.iv %>
+</p>
+
+<p>
+  <strong>Key recipient enc:</strong>
+  <%= @message.key_recipient_enc %>
+</p>
+
+<p>
+  <strong>Sig recipient:</strong>
+  <%= @message.sig_recipient %>
+</p>
+
+<p>
+  <strong>Timestamp:</strong>
+  <%= @message.timestamp %>
+</p>
+
+<p>
+  <strong>Recipient:</strong>
+  <%= @message.recipient %>
+</p>
+
+<p>
+  <strong>Sig service:</strong>
+  <%= @message.sig_service %>
 </p>
 
 <%= link_to 'Edit', edit_message_path(@message) %> |

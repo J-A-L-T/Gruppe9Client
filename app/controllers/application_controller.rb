@@ -1,6 +1,22 @@
 class ApplicationController < ActionController::Base
+	require 'openssl'
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
-  $URL = "http://192.168.0.14:3001/"
+  protect_from_forgery with: :null_session,
+      if: Proc.new { |c| c.request.format =~ %r{application/json} }
+  #protect_from_forgery with: :exception
+  helper_method :timestampValidation
+
+  def timestampValidation(timestamp)
+  	server_time = Time.now.to_i
+  	later_server_time = server_time + 300
+  	earlier_server_time = server_time - 300
+
+  	if (earlier_server_time .. later_server_time).include?(timestamp)
+  	  true
+  	else
+  	  false
+  	end
+  end
+
 end

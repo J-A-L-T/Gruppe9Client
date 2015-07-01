@@ -1,148 +1,114 @@
-require 'openssl'
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   def index
-    if $gUsername != ""
-      @messages=[] 
-      timestamp = Time.now.to_i
-      data = $gUsername.to_s+timestamp.to_s
+    response_timestamp = params[:timestamp].to_i
+
+    user_signature = Base64.strict_decode64(params[:sig_user])
+    document = params[:user_id].to_s + response_timestamp.to_s
+
+    if timestampValidation(response_timestamp)
+      @user = User.find_by_name(params[:user_id])
       digest = OpenSSL::Digest::SHA256.new
-      signature = $gPrivkey_user.sign digest, data
+      pubkey = OpenSSL::PKey::RSA.new(Base64.strict_decode64(@user.pubkey_user))
+      
+      puts "#####################################################"
+      puts "###################SIGNATURE CHECK###################"
+      puts "#####################################################"
 
-      response = HTTParty.get($URL+$gUsername+'/message',
-        :body => {  :timestamp => timestamp, 
-                    :signature => Base64.strict_encode64(signature)
-                  }.to_json,
-      :headers => { 'Content-Type' => 'application/json' })
-      case response.code
-        when 200
-          # => Krypto-Vorbereitung
-          response.each do |r|
-            sig_recipient = Base64.strict_decode64(r["sig_recipient"])
-            sender = r["sender"]
-            puts sender
-            encrypted_message = Base64.strict_decode64(r["cipher"])
-            iv = Base64.strict_decode64(r["iv"])
-            key_recipient_enc = Base64.strict_decode64(r["key_recipient_enc"])
-
-            key_recipient = $gPrivkey_user.private_decrypt key_recipient_enc
-
-
-            decipher = OpenSSL::Cipher.new('AES-128-CBC')
-            decipher.decrypt
-            decipher.key = key_recipient
-            decipher.iv = iv
-            decrypted_message = decipher.update(encrypted_message) + decipher.final
-
-
-            data = sender.to_s + encrypted_message.to_s + iv.to_s + key_recipient_enc.to_s
-            digest = OpenSSL::Digest::SHA256.new
-            # => Pubkey des Users, an den die Nachricht bestimmt ist.
-            pubkeyResponse = HTTParty.get($URL+sender+'/pubkey',
-            :headers => { 'Content-Type' => 'application/json' })
-            pubkeyBody = JSON.parse(pubkeyResponse.body)   
-            pk = Base64.strict_decode64(pubkeyBody["pubkey_user"])
-            pubkey_sender = OpenSSL::PKey::RSA.new(pk)
-            # => Empfang der Parameter
-            
-            if pubkey_sender.verify digest, sig_recipient, data
-              message = Message.new(:username => sender, :message => decrypted_message)
-              @messages<<message
-            end
-          end
-        else
-          respond_to do |format|
-            format.html { redirect_to messages_url, alert: "Nachrichtenabruf fehlgeschlagen." }
-          end
+      if pubkey.verify digest, user_signature, document
+        puts "###################SIGNATURE Valid###################"
+        puts "#####################################################"
+        Message.transaction do
+          @messages = Message.where(recipient: params[:user_id])
+          render json: @messages.to_json(only: [:sender, :recipient, :cipher, :iv, :key_recipient_enc, :sig_recipient])
+        end
+        Message.transaction do
+          Message.where(recipient: params[:user_id]).destroy_all
         end
       else
-        respond_to do |format|
-            format.html { redirect_to '/', alert: "Sie sind nicht eingeloggt." }
-          end
-        end
-    end
-    
-  def new
-    if $gUsername != ""
-    @message = Message.new
+        render status: 503
+        puts "##################SIGNATURe invalid##################"
+        puts "#####################################################"
+      end
     else
-        respond_to do |format|
-            format.html { redirect_to '/', alert: "Sie sind nicht eingeloggt." }
-          end
-        end
+      render status: 501
+    end
+  end
+
+  def show
+  end
+
+  def new
+    @message = Message.new
+  end
+
+  def edit
   end
 
   def create
-    if $gUsername != ""
     @message = Message.new(message_params)
 
-    pubkeyResponse = HTTParty.get($URL+@message.username+'/pubkey',
-    :headers => { 'Content-Type' => 'application/json' })
+    user_signature = Base64.strict_decode64(@message.sig_service)
+    @user = User.find_by_name(@message.sender)
+    digest = OpenSSL::Digest::SHA256.new
+    pubkey = OpenSSL::PKey::RSA.new(Base64.strict_decode64(@user.pubkey_user))
 
-    case pubkeyResponse.code
-      when 404
-        respond_to do |format|
-          format.html { redirect_to messages_url, alert: "Empfänger nicht gefunden." }
+    sig_document = @message["sender"].to_s + Base64.strict_decode64(@message["cipher"]).to_s + Base64.strict_decode64(@message["iv"]).to_s + Base64.strict_decode64(@message["key_recipient_enc"]).to_s + Base64.strict_decode64(@message["sig_recipient"]).to_s + @message["timestamp"].to_s + @message["recipient"].to_s
+
+    respond_to do |format|
+      if timestampValidation(@message.timestamp.to_i)
+        puts "#####################################################"
+        puts "###################SIGNATURE CHECK###################"
+        puts "#####################################################"
+        if pubkey.verify digest, Base64.strict_decode64(@message.sig_service), sig_document
+          puts "###################SIGNATURE Valid###################"
+          puts "#####################################################"
+          puts "testen wa nochmal"
+          puts @message["sender"].to_s
+          @message.save
+
+          #format.html { redirect_to @message, notice: 'Message was successfully created.' }
+          format.json { render json: '{ "status":"200" }', status: 200 }
+        else
+          puts "##################SIGNATURe invalid##################"
+          puts "#####################################################"
+          format.json { render json: '{ "status":"503" }', status: 503 }
         end
-      when 200
-        pubkeyBody = JSON.parse(pubkeyResponse.body)   
-      pk = Base64.strict_decode64(pubkeyBody["pubkey_user"])
-      pubkey_recipient = OpenSSL::PKey::RSA.new(pk)
-
-      cipher = OpenSSL::Cipher.new('AES-128-CBC')
-      cipher.encrypt
-      key_recipient = cipher.random_key
-      iv = cipher.random_iv 
-
-      encrypted_message = cipher.update(@message.message) + cipher.final
-
-      key_recipient_enc = pubkey_recipient.public_encrypt key_recipient
-
-      data = $gUsername.to_s + encrypted_message.to_s + iv.to_s + key_recipient_enc.to_s
-      digest = OpenSSL::Digest::SHA256.new
-      sig_recipient = $gPrivkey_user.sign digest, data
-
-      timestamp = Time.now.to_i
-
-      data = $gUsername.to_s + encrypted_message.to_s + iv + key_recipient_enc.to_s + sig_recipient.to_s + timestamp.to_s + @message.username.to_s
-
-      digest = OpenSSL::Digest::SHA256.new
-      sig_service = $gPrivkey_user.sign digest, data
-
-      response = HTTParty.post($URL+@message.username+'/message', 
-      :body => { :outerMessage => { :timestamp => timestamp, 
-                            :sig_service => Base64.strict_encode64(sig_service),
-                            :sender => $gUsername, 
-                            :cipher => Base64.strict_encode64(encrypted_message),
-                            :iv => Base64.strict_encode64(iv),
-                            :key_recipient_enc => Base64.strict_encode64(key_recipient_enc),
-                            :sig_recipient => Base64.strict_encode64(sig_recipient)
-                          }
-               }.to_json,
-      :headers => { 'Content-Type' => 'application/json' })
-      case response.code
-      when 201
-        respond_to do |format|
-        format.html { redirect_to messages_url, notice: "Nachricht erfolgreich gesendet." }
-      end
       else
-        respond_to do |format|
-        format.html { redirect_to messages_url, notice: "Nachrichtenversandt fehlgeschlagen" }
-      end
+        format.json { render json: '{ "Nachricht":"Status 500 - Zeitüberschreitung bei der Anfrage." }', status: 500 }
       end
     end
-          else
-        respond_to do |format|
-            format.html { redirect_to '/', alert: "Sie sind nicht eingeloggt." }
-          end
-        end
+  end
+
+  def update
+    respond_to do |format|
+      if @message.update(message_params)
+        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
+        format.json { render :show, status: :ok, location: @message }
+      else
+        format.html { render :edit }
+        format.json { render json: @message.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @delete_msg = Message.find(params[:id])
+    @delete_msg.destroy
+    respond_to do |format|
+      #format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
+    def set_message
+      @message = Message.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:username, :message)
+      params.require(:message).permit(:sender, :cipher, :iv, :key_recipient_enc, :sig_recipient, :timestamp, :recipient, :sig_service)
     end
-  end
+end
