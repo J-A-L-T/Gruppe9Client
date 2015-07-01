@@ -1,0 +1,2773 @@
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "message" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150629094248')[0m
+  [1m[35m (1.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150629094219')
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "message" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (4.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150629094248')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150629094219')
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for ::1 at 2015-07-01 14:49:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 14:49:18 +0200
+Processing by MessagesController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `sign' for nil:NilClass):
+  app/controllers/messages_controller.rb:11:in `index'
+
+
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (38.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (33.9ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (72.7ms)
+
+
+Started GET "/users/logout" for ::1 at 2015-07-01 14:49:32 +0200
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-01 14:49:32 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (30.5ms)
+Completed 200 OK in 2763ms (Views: 2754.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap_and_overrides.self-3925a96e29ebacce767f7e280962585dfb9c0a952852429edaadd409dde05734.css?body=1" for ::1 at 2015-07-01 14:49:34 +0200
+
+
+Started GET "/assets/messages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-07-01 14:49:34 +0200
+
+
+Started GET "/assets/scaffolds.self-08503bc8d4664bb04231085d4b1b6e10ab116d3142c11a2813822c24727f914f.css?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-db278e3a8fa6249c16796b113ebd29e11ef4e2cd021618ed84895d524a4511e0.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-ebce91ec66c71bcee451ea7da9128fd1bf8faa02c6d22ea04c598423431e4c08.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-ab1767545e27c0dbd36971e656ae4927171f673e3d932cdec2cbef39e991952b.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-8bb9309b6c24a4ba6b94026a049d25b13bdc0553b6fe83255c14a715ba624cc4.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-bd0c6724cdc75302fe98dfeff923112b76c1673cf4a0752a7050b7feea15594c.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-7e3ee4a243bb416b5f0111a0be08f8547c5d72ba71fe4afe4a4a007f5cb4e10e.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-d7f9330825307d053f68da11bb9ddc9b070df72deef3d115f2f3d55f66b17457.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-cd672ecad3b549e1dbd89bfd044e5812d6fdade56f42d48e3acee0c3f4614526.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/button.self-ceb562de883e04359bb2c06f07bdf6ecf065cc8a5027e2e58857c5e91b0b68e3.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-a87553101c955a01e2e8c81fad69a16582ddbf58fe95d5eb335dde5567af7647.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-5d09995e01b647168888180d40e271f9a6759d68ae7ac029d7026af58813d376.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-14e04bbe71282aa039322ab93e3a3a886ddede5f59a2f365f7c861f697bbeb21.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/messages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-07-01 14:49:35 +0200
+
+
+Started GET "/images/favicon.ico" for ::1 at 2015-07-01 14:49:35 +0200
+
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (33.8ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (16.1ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.1ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (36.4ms)
+
+
+Started POST "/users" for ::1 at 2015-07-01 14:49:54 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8f6KlIALZeh1W0GsB6/9hv+1SUxvgH+sBgjSyJEi3jtsSh3CaWnhUXumRLoA2eBsOvuOyp/mBq/KnmBpCFgk6w==", "user"=>{"name"=>"test", "password"=>"[FILTERED]"}, "commit"=>"Einloggen"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+Errno::ECONNREFUSED (Connection refused - connect(2) for "192.168.0.14" port 3001):
+  app/controllers/users_controller.rb:72:in `create'
+
+
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.1ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (15.8ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (33.8ms)
+
+
+Started GET "/" for ::1 at 2015-07-01 15:02:18 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 12ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:02:18 +0200
+
+SyntaxError (/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:121: syntax error, unexpected tSYMBEG, expecting '}'
+                            :recipient => @message.username.downcase
+                             ^
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:122: syntax error, unexpected '}', expecting keyword_end
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:124: syntax error, unexpected =>, expecting :: or '[' or '.'
+      :headers => { 'Content-Type' => 'application/json' })
+                 ^
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:124: syntax error, unexpected ')', expecting keyword_end
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:149: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/messages_controller.rb:121: syntax error, unexpected tSYMBEG, expecting '}'
+  app/controllers/messages_controller.rb:122: syntax error, unexpected '}', expecting keyword_end
+  app/controllers/messages_controller.rb:124: syntax error, unexpected =>, expecting :: or '[' or '.'
+  app/controllers/messages_controller.rb:124: syntax error, unexpected ')', expecting keyword_end
+  app/controllers/messages_controller.rb:149: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.8ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (33.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (18.7ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (48.2ms)
+
+
+Started GET "/user/logut" for ::1 at 2015-07-01 15:02:37 +0200
+
+ActionController::RoutingError (No route matches [GET] "/user/logut"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (35.1ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (18.0ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (41.6ms)
+
+
+Started GET "/user/logout" for ::1 at 2015-07-01 15:02:45 +0200
+
+ActionController::RoutingError (No route matches [GET] "/user/logout"):
+  actionpack (4.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.1.3) lib/web_console/middleware.rb:37:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.1) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.1) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.1) lib/rails/engine.rb:518:in `call'
+  railties (4.2.1) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.0ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (20.4ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (44.1ms)
+
+
+Started GET "/users/logout" for ::1 at 2015-07-01 15:02:50 +0200
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-01 15:02:50 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 586ms (Views: 577.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users" for ::1 at 2015-07-01 15:02:58 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YKVne5pnydkvaH9Av8Y6WwPqQ3r/5ULg5fy/9M6p7xX9EfAtcwVNYCGVela4sCexxqSE/A+DO+Mpag1VV9MVxQ==", "user"=>{"name"=>"Test", "password"=>"[FILTERED]"}, "commit"=>"Registrieren"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 642ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:02:58 +0200
+
+SyntaxError (/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:121: syntax error, unexpected tSYMBEG, expecting '}'
+                            :recipient => @message.username.downcase
+                             ^
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:122: syntax error, unexpected '}', expecting keyword_end
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:124: syntax error, unexpected =>, expecting :: or '[' or '.'
+      :headers => { 'Content-Type' => 'application/json' })
+                 ^
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:124: syntax error, unexpected ')', expecting keyword_end
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:149: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/messages_controller.rb:121: syntax error, unexpected tSYMBEG, expecting '}'
+  app/controllers/messages_controller.rb:122: syntax error, unexpected '}', expecting keyword_end
+  app/controllers/messages_controller.rb:124: syntax error, unexpected =>, expecting :: or '[' or '.'
+  app/controllers/messages_controller.rb:124: syntax error, unexpected ')', expecting keyword_end
+  app/controllers/messages_controller.rb:149: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.7ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.2ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (18.7ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (38.4ms)
+
+
+Started GET "/users/logout" for ::1 at 2015-07-01 15:04:31 +0200
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-01 15:04:31 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 205ms (Views: 199.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for ::1 at 2015-07-01 15:04:49 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NV48IBfOklMeFl4n4ZtSFeDwPhiqUh9QC+4gw9N3t8Wo6qt2/qwW6hDrWzHm7U//Jb75nlo0ZlPHeJJiSg1NFQ==", "user"=>{"name"=>"Jan", "password"=>"[FILTERED]"}, "commit"=>"Registrieren"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 719ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:04:50 +0200
+
+SyntaxError (/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:121: syntax error, unexpected tSYMBEG, expecting '}'
+                            :recipient => @message.username.downcase
+                             ^
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:122: syntax error, unexpected '}', expecting keyword_end
+               }.to_json,
+                ^
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:123: syntax error, unexpected =>, expecting :: or '[' or '.'
+      :headers => { 'Content-Type' => 'application/json' })
+                 ^
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:123: syntax error, unexpected ')', expecting keyword_end
+/Users/Jan/Projekte/Rails/Gruppe9Client/app/controllers/messages_controller.rb:148: syntax error, unexpected keyword_end, expecting end-of-input):
+  app/controllers/messages_controller.rb:121: syntax error, unexpected tSYMBEG, expecting '}'
+  app/controllers/messages_controller.rb:122: syntax error, unexpected '}', expecting keyword_end
+  app/controllers/messages_controller.rb:123: syntax error, unexpected =>, expecting :: or '[' or '.'
+  app/controllers/messages_controller.rb:123: syntax error, unexpected ')', expecting keyword_end
+  app/controllers/messages_controller.rb:148: syntax error, unexpected keyword_end, expecting end-of-input
+
+
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.4ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.9ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (14.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (32.5ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:03 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 222ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:03 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 132ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:03 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 152ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:04 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 150ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:04 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 143ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:04 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 133ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:04 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 138ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:04 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 148ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:04 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 136ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:04 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 132ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 148ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 132ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 128ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 154ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 126ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 137ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 138ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 148ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 144ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 178ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 156ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 130ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 121ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 225ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 160ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 127ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 165ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 139ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 126ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 157ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 136ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 126ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 149ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 132ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 135ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 132ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:09 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 139ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:09 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 125ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:09 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 138ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:09 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 130ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:09 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 149ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:09 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 152ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/logout" for ::1 at 2015-07-01 15:05:12 +0200
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-01 15:05:12 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 118ms (Views: 113.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for ::1 at 2015-07-01 15:05:18 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GHPNSBmw79+Negj9phSe2f62nFeoidx+Rm4FWs7MC7qFx1oe8NJrZoOHDeuhYoMzO/hb0VjvpX2K+Lf7V7bxag==", "user"=>{"name"=>"Jan", "password"=>"[FILTERED]"}, "commit"=>"Einloggen"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 155ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:19 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 131ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:19 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 159ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:19 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 157ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:19 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 127ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:19 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 126ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:19 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 155ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:20 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 127ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:20 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 145ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:20 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 149ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:20 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 132ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:20 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 135ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:20 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 156ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:20 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 136ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:21 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 149ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:21 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 211ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:21 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 138ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:21 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 242ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:21 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 171ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:22 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 132ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:22 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 122ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:22 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 166ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:22 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 152ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:22 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 150ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:22 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 156ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:23 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 147ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:23 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 131ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:23 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 148ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:23 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 139ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:23 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 143ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:23 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 142ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:23 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 134ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:24 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 139ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:24 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 142ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:24 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 135ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:24 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 167ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:24 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 147ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:24 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 237ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:25 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 170ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:25 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 154ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:25 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 159ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:25 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 177ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:30 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 165ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:31 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 176ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:31 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 154ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:31 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 151ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:31 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 158ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:31 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 157ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:31 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 150ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 167ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 142ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 133ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 144ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 131ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 170ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 155ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 154ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 182ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 202ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 179ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 154ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:34 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 156ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:05:34 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 180ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:04 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 146ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:04 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 179ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:04 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 162ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:04 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 140ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 169ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 153ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 149ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 216ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:05 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 144ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 164ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 145ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 149ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 165ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 153ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:06 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 167ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 143ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 143ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 168ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 145ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 151ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 171ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/logout" for ::1 at 2015-07-01 15:06:18 +0200
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-01 15:06:18 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 134ms (Views: 133.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-07-01 15:06:43 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hCNmSLAZSgfhpm751vfU/y9ytUZGRn89JHcpH0S7l/IZl/EeWXvOvu9ba+/RgckV6jxywLYgBj7o4Zu+3cFtIg==", "user"=>{"name"=>"Tobi", "password"=>"[FILTERED]"}, "commit"=>"Registrieren"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 597ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:44 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 158ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:44 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 182ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:44 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 145ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:44 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 138ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:44 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 179ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:45 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 151ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:45 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 177ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:45 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 155ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:45 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 149ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:45 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 164ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:45 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 162ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:46 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 277ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:46 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 145ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:46 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 144ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:46 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 165ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:46 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 138ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:46 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 171ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:47 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 155ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:47 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 160ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:47 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 144ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:47 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 153ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:47 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 173ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:48 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 147ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:48 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 166ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:48 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 153ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:48 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 165ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:48 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 146ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:48 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 139ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:49 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 163ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:49 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 142ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:49 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 170ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:49 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 148ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:49 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 177ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:49 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 144ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:49 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 159ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:50 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 143ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:50 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 194ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:50 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 154ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:50 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 142ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:50 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 181ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:51 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 152ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:56 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 164ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:56 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 165ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:56 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 177ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:56 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 153ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:56 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 174ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 161ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 179ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 150ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 187ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 217ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 181ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 210ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 178ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 135ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 187ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 150ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 196ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 174ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 237ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 158ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:06:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 242ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:30 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 137ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:30 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 149ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:30 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 174ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:30 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 136ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:30 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 187ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:30 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 128ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:31 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 182ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:31 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 145ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:31 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 186ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:31 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 153ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:31 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 185ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 157ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 189ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 134ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 142ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 196ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:32 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 156ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 187ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 157ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 177ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:07:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 160ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 178ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:33 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 146ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:34 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 173ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:34 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 140ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:34 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 171ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:34 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 150ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:34 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 187ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:34 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 129ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:35 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 174ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:35 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 136ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:35 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 197ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:35 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 252ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:35 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 201ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:36 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 144ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:36 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 181ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:36 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 169ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:36 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 152ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:36 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 167ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:36 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 135ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:37 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 179ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 15:08:37 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 130ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/logout" for ::1 at 2015-07-01 16:29:23 +0200
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-01 16:29:23 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 145ms (Views: 144.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-07-01 16:29:53 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"D2F3t+Fp5qttfaXoW7LjIvxxKUFvklYrBhbxvv2Mho2S1eDhCAtiEmOAoP5cxP7IOT/ux5/0LyjKgEMfZPZ8XQ==", "user"=>{"name"=>"dieter", "password"=>"[FILTERED]"}, "commit"=>"Registrieren"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 619ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:54 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 265ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:54 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 135ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:54 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 191ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:54 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 156ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:55 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 192ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:55 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 173ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:55 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 145ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:55 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 184ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:55 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 156ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:55 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 187ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:56 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 156ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:56 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 181ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:56 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 183ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:56 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 142ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:56 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 233ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 163ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 192ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 148ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 188ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 149ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 211ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 155ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 179ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 180ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 155ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 240ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 146ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 181ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 146ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 180ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:29:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 167ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:00 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 364ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:00 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 158ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:00 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 199ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:00 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 188ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:00 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 145ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:01 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 186ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:01 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 147ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:01 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 186ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:01 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 236ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:01 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 145ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 186ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 152ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 193ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 163ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:07 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 211ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 172ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 200ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 199ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 166ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:08 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 203ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:09 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 160ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:09 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 252ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:09 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 193ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:09 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 170ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:09 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 221ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:10 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 161ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:10 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 194ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:10 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 258ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:10 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 165ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:10 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 194ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:11 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 162ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:41 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 228ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:41 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 170ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:41 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 136ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:41 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 141ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:41 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 243ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:42 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 142ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:42 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 181ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:42 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 154ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:42 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 214ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:42 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 144ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:43 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 129ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:43 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 125ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:43 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 130ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:43 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 219ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:43 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 138ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:43 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 116ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:44 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 151ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:44 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 222ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:44 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 126ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:44 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 131ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:30:44 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 213ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 149ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 152ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:57 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 119ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 125ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 176ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 126ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 141ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 148ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:58 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 193ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 130ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 150ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 136ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 183ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 135ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 152ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:31:59 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 255ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:32:00 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 186ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:32:00 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 279ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:32:00 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 145ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:32:00 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 144ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:32:01 +0200
+Processing by MessagesController#index as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 135ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:35:00 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 156ms (Views: 137.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:35:12 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 243ms (Views: 231.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-01 16:35:30 +0200
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:35:30 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 132ms (Views: 118.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/logout" for ::1 at 2015-07-01 16:35:31 +0200
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-01 16:35:31 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 152ms (Views: 135.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for ::1 at 2015-07-01 16:35:37 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3kIcX5823jKnjMc+Dj+OhXqO18eyTSJ3XOfuYMAZ1AdD9osJdlRai6lxwigJSZNvv8AQQUIrW3SQcVzBWWMu1w==", "user"=>{"name"=>"Hans", "password"=>"[FILTERED]"}, "commit"=>"Registrieren"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 369ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:35:37 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 164ms (Views: 152.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/new" for ::1 at 2015-07-01 16:35:41 +0200
+Processing by MessagesController#new as HTML
+  Rendered messages/_form.html.erb (5.1ms)
+  Rendered messages/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 134ms (Views: 127.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/messages" for ::1 at 2015-07-01 16:35:46 +0200
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QSnrJR20QxZEntdq4jiWiBBZZz+i/bee1732oyb9xEvcnXxz9NbHr0pj0nzlToti1ReguVKbzp0bK0QCv4c+mw==", "message"=>{"username"=>"Hans", "message"=>"Test"}, "commit"=>"Create Message"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 37ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:35:46 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 175ms (Views: 161.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/new" for ::1 at 2015-07-01 16:38:22 +0200
+Processing by MessagesController#new as HTML
+  Rendered messages/_form.html.erb (2.9ms)
+  Rendered messages/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 118ms (Views: 113.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/messages" for ::1 at 2015-07-01 16:38:28 +0200
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sbkNXXoLkF3jW/2FFPnAGFYl8K3v0XfQtok/FvwG7QssDZoLk2kU5O2m+JMTj93yk2s3Kx+3DtN6H423ZXwX2w==", "message"=>{"username"=>"Hans", "message"=>"Hans"}, "commit"=>"Create Message"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 38ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:38:28 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 204ms (Views: 171.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/new" for ::1 at 2015-07-01 16:38:37 +0200
+Processing by MessagesController#new as HTML
+  Rendered messages/_form.html.erb (1.4ms)
+  Rendered messages/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 126ms (Views: 125.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/messages" for ::1 at 2015-07-01 16:38:40 +0200
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ai1aPxQBabextJcK+UsC7zVxNLwu4X+w9JuaKwgGq3afmc1p/WPtDr9Jkhz+PR8F8D/zOt6HBrM4DSiKkXxRpg==", "message"=>{"username"=>"Hans", "message"=>"Hans"}, "commit"=>"Create Message"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 38ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:38:40 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 178ms (Views: 142.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/new" for ::1 at 2015-07-01 16:38:56 +0200
+Processing by MessagesController#new as HTML
+  Rendered messages/_form.html.erb (1.8ms)
+  Rendered messages/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 154ms (Views: 149.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/messages" for ::1 at 2015-07-01 16:38:58 +0200
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rtgAwJEQ5Q8T3DglzAm/jzMg5FC6F9yjHMQqoSZK5gQzbJeWeHJhth0hPTPLf6Jl9m4j1kpxpaDQUpgAvzAc1A==", "message"=>{"username"=>"Hans", "message"=>"asdasd"}, "commit"=>"Create Message"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 41ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:38:59 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 190ms (Views: 154.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/logout" for ::1 at 2015-07-01 16:39:07 +0200
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-01 16:39:07 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 131ms (Views: 126.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for ::1 at 2015-07-01 16:39:17 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7CzwSEpsb5D2dvvO+1M+I8HTwBugNvUf7/htDS+lJZpxmGceow7rKfiL/tj8JSPJBJ0HnVBQjBwjbt+stt/fSg==", "user"=>{"name"=>"Hansdieter", "password"=>"[FILTERED]"}, "commit"=>"Registrieren"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 449ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 16:39:17 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 142ms (Views: 130.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2015-07-01 16:41:15 +0200
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 172ms (Views: 155.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2015-07-01 16:42:54 +0200
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 151ms (Views: 130.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/logout" for ::1 at 2015-07-01 19:40:58 +0200
+Processing by UsersController#logout as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2015-07-01 19:40:58 +0200
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 150ms (Views: 149.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-07-01 19:41:05 +0200
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Lcz7UIAVyTh90CEi+BsDnnnJYwLJ7k6OTBMlH9CD7+aweGwGaXdNgXMtJDT/bR50vIekhDmIN42AhZe+SfkVNg==", "user"=>{"name"=>"Test1", "password"=>"[FILTERED]"}, "commit"=>"Registrieren"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 589ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 19:41:06 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 164ms (Views: 151.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/new" for ::1 at 2015-07-01 19:41:08 +0200
+Processing by MessagesController#new as HTML
+  Rendered messages/_form.html.erb (3.4ms)
+  Rendered messages/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 167ms (Views: 152.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/messages" for ::1 at 2015-07-01 19:41:13 +0200
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5VdlcOO01TziEKxpkzoBUyaHxcU+7mcgsPsqXkq1RJp44/ImCtZRheztqX+UTBy548kCQ86IHiN8bZj/08++Sg==", "message"=>{"username"=>"Test1", "message"=>"Test1"}, "commit"=>"Create Message"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 35ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 19:41:13 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 204ms (Views: 168.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/new" for ::1 at 2015-07-01 19:41:15 +0200
+Processing by MessagesController#new as HTML
+  Rendered messages/_form.html.erb (1.7ms)
+  Rendered messages/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 139ms (Views: 138.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/messages" for ::1 at 2015-07-01 19:41:19 +0200
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"27XZG0zHhz6eeFUxlNUfPJsRLvTy7jyhGPb+VQg/SNVGAU5NpaUDh5CFUCeTowLWXl/pcgKIRaLUYEz0kUWyBQ==", "message"=>{"username"=>"Test1", "message"=>"Test2"}, "commit"=>"Create Message"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 39ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 19:41:19 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 196ms (Views: 161.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2015-07-01 19:41:40 +0200
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 153ms (Views: 129.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 19:41:42 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 146ms (Views: 133.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/messages/new" for ::1 at 2015-07-01 19:45:15 +0200
+Processing by MessagesController#new as HTML
+  Rendered messages/_form.html.erb (1.4ms)
+  Rendered messages/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 166ms (Views: 164.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/messages" for ::1 at 2015-07-01 19:45:21 +0200
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/WGbP4dOnDeUcdKvVGDA9HS8COrmDzsCdj2I5cwB3hhg1QxpbiwYjpqM17lTFt0esfLPbBZpQgG6qzpEVXskyA==", "message"=>{"username"=>"Test", "message"=>""}, "commit"=>"Create Message"}
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+ArgumentError (data must not be empty):
+  app/controllers/messages_controller.rb:98:in `update'
+  app/controllers/messages_controller.rb:98:in `create'
+
+
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.0ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/console.js.erb within layouts/javascript (27.1ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/Jan/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.1.3/lib/web_console/templates/index.html.erb (56.3ms)
+
+
+Started POST "/messages" for ::1 at 2015-07-01 19:45:27 +0200
+Processing by MessagesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LbL0aOnPHYY8BwADJ0qHKPOJKDkCcTvF5bkgnVxTzRqwBmM+AK2ZPzL6BRUgPJrCNsfvv/IXQsYpL5I8xSk3yg==", "message"=>{"username"=>"Test1", "message"=>"Test1"}, "commit"=>"Create Message"}
+Redirected to http://localhost:3000/messages
+Completed 302 Found in 46ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/messages" for ::1 at 2015-07-01 19:45:27 +0200
+Processing by MessagesController#index as HTML
+  Rendered messages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 208ms (Views: 154.8ms | ActiveRecord: 0.0ms)

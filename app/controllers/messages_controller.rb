@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
 
       response = HTTParty.get($URL+$gUsername+'/message',
         :body => {  :timestamp => timestamp, 
-                    :signature => Base64.strict_encode64(signature)
+                    :sig_user => Base64.strict_encode64(signature)
                   }.to_json,
       :headers => { 'Content-Type' => 'application/json' })
       case response.code
@@ -39,7 +39,7 @@ class MessagesController < ApplicationController
             data = sender.to_s + encrypted_message.to_s + iv.to_s + key_recipient_enc.to_s
             digest = OpenSSL::Digest::SHA256.new
             # => Pubkey des Users, an den die Nachricht bestimmt ist.
-            pubkeyResponse = HTTParty.get($URL+sender+'/pubkey',
+            pubkeyResponse = HTTParty.get($URL+sender.downcase+'/pubkey',
             :headers => { 'Content-Type' => 'application/json' })
             pubkeyBody = JSON.parse(pubkeyResponse.body)   
             pk = Base64.strict_decode64(pubkeyBody["pubkey_user"])
@@ -77,7 +77,7 @@ class MessagesController < ApplicationController
     if $gUsername != ""
     @message = Message.new(message_params)
 
-    pubkeyResponse = HTTParty.get($URL+@message.username+'/pubkey',
+    pubkeyResponse = HTTParty.get($URL+@message.username.downcase+'/pubkey',
     :headers => { 'Content-Type' => 'application/json' })
 
     case pubkeyResponse.code
@@ -105,24 +105,24 @@ class MessagesController < ApplicationController
 
       timestamp = Time.now.to_i
 
-      data = $gUsername.to_s + encrypted_message.to_s + iv + key_recipient_enc.to_s + sig_recipient.to_s + timestamp.to_s + @message.username.to_s
+      data = $gUsername.to_s + encrypted_message.to_s + iv + key_recipient_enc.to_s + sig_recipient.to_s + timestamp.to_s + @message.username.downcase.to_s
 
       digest = OpenSSL::Digest::SHA256.new
       sig_service = $gPrivkey_user.sign digest, data
 
-      response = HTTParty.post($URL+@message.username+'/message', 
-      :body => { :outerMessage => { :timestamp => timestamp, 
+      response = HTTParty.post($URL+'/message', 
+      :body => {            :timestamp => timestamp, 
                             :sig_service => Base64.strict_encode64(sig_service),
                             :sender => $gUsername, 
                             :cipher => Base64.strict_encode64(encrypted_message),
                             :iv => Base64.strict_encode64(iv),
                             :key_recipient_enc => Base64.strict_encode64(key_recipient_enc),
-                            :sig_recipient => Base64.strict_encode64(sig_recipient)
-                          }
+                            :sig_recipient => Base64.strict_encode64(sig_recipient),
+                            :recipient => @message.username.downcase
                }.to_json,
       :headers => { 'Content-Type' => 'application/json' })
       case response.code
-      when 201
+      when 200
         respond_to do |format|
         format.html { redirect_to messages_url, notice: "Nachricht erfolgreich gesendet." }
       end

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     :body => {},
     :headers => { 'Content-Type' => 'application/json' })
     response.each do |r|
-    username = r["username"]
+    username = r["name"]
     user = User.new(:name => username)
       @users<<user
     end
@@ -52,12 +52,11 @@ class UsersController < ApplicationController
       cipher.key = masterkey
       privkey_user_enc = cipher.update(private_key) + cipher.final
 
-      response = HTTParty.post($URL+'user', 
-      :body => { :user => { :username => @user.name, 
-                            :salt_masterkey => Base64.strict_encode64(salt_masterkey),
-                            :pubkey_user => Base64.strict_encode64(public_key), 
-                            :privkey_user_enc => Base64.strict_encode64(privkey_user_enc)
-                          }
+      response = HTTParty.post($URL, 
+      :body => { :name => @user.name.downcase, 
+                 :salt_masterkey => Base64.strict_encode64(salt_masterkey),
+                 :pubkey_user => Base64.strict_encode64(public_key), 
+                 :privkey_user_enc => Base64.strict_encode64(privkey_user_enc)
                }.to_json,
       :headers => { 'Content-Type' => 'application/json' })
       case response.code
@@ -69,7 +68,7 @@ class UsersController < ApplicationController
         end
       end
         if (params[:commit] == 'Einloggen' || 'Registrieren') && success == true
-          response = HTTParty.get($URL+@user.name, 
+          response = HTTParty.get($URL+@user.name.downcase, 
           :headers => { 'Content-Type' => 'application/json' })
           case response.code
           when 404
@@ -79,7 +78,7 @@ class UsersController < ApplicationController
           else
           # Masterkey bilden mit passwort und saltmasterkey
           # Sachen lokal 
-          $gUsername = @user.name
+          $gUsername = @user.name.downcase
           password = @user.password
           jsonResponse = JSON.parse(response.body)
           salt_masterkey = Base64.strict_decode64(jsonResponse["salt_masterkey"])
