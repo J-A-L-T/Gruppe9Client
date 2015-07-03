@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    success = true
+    @success = true
     if params[:commit] == 'Registrieren'
       salt_masterkey = OpenSSL::Random.random_bytes 64
       i = 10000
@@ -60,14 +60,14 @@ class UsersController < ApplicationController
                }.to_json,
       :headers => { 'Content-Type' => 'application/json' })
       case response.code
-        when 409
+        when 501
           @success = false
           respond_to do |format|
           format.html { redirect_to '/users/new', alert: "Benutzername bereits vergeben." }
           end
         end
       end
-        if (params[:commit] == 'Einloggen' || 'Registrieren') && success == true
+        if (params[:commit] == 'Einloggen' || 'Registrieren') && @success == true
           response = HTTParty.get($URL+@user.name.downcase, 
           :headers => { 'Content-Type' => 'application/json' })
           case response.code
